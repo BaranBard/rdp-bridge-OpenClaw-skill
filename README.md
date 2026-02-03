@@ -2,6 +2,8 @@
 
 View and control a **Windows desktop over RDP** from OpenClaw **without Docker**.
 
+> Platform: this skill runs on **Linux** (including **WSL2**). It does not run on Windows directly.
+
 This skill launches **FreeRDP (`xfreerdp`)** inside a virtual X desktop (Xvfb). For input + screenshots it prefers to **reuse the `computer-use` skill’s display** (`DISPLAY=:99`) and delegates click/type/key/screenshot to `computer-use` scripts.
 
 ## What you get

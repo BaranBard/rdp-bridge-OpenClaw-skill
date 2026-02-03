@@ -1,7 +1,12 @@
 ---
 name: rdp-bridge
-description: View and control a Windows desktop over RDP inside the OpenClaw headless desktop (reuses computer-use Xvfb when available). Provides connect/status/screenshot/click/type/key/disconnect scripts.
+description: View and control a Windows desktop over RDP from a Linux host/WSL using FreeRDP inside an Xvfb desktop (reuses computer-use display when available).
 version: 0.1.0
+metadata:
+  openclaw:
+    os: [linux]
+    requires:
+      bins: [xfreerdp, Xvfb]
 ---
 
 # rdp-bridge
@@ -25,9 +30,13 @@ sudo apt install -y freerdp2-x11 xvfb x11-utils openbox \
 
 If you plan to reuse `computer-use` (recommended), also install and/or set it up (see `skills/computer-use/SKILL.md`).
 
-### Notes for WSL
+### Platform / OS
 
-- This skill is meant to run **inside WSL/Linux**.
+- This skill is for **Linux hosts** (including **WSL2 Linux distributions**).
+- It does **not** run on Windows directly.
+
+## Notes for WSL
+
 - You don’t need a Windows GUI; everything renders into Xvfb.
 - If systemd is not enabled in your WSL distro, the `computer-use` systemd services may not be running; `rdp-bridge` can still start its own ad-hoc Xvfb session.
 
